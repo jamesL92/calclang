@@ -1,0 +1,11 @@
+expr        : add-expr
+            : trig-expr
+trig-expr   : SIN|COS|TAN LBRACKET expr RBRACKET
+add-expr    : mult-expr PLUS|MINUS add-expr
+            : mult-expr
+mult-expr   : exp-expr TIMES|DIVIDE mult-expr
+            : exp-expr
+exp-expr    : atom ^ exp-expr
+            : atom
+atom        : NUMBER
+            : LBRACKET expr RBRACKET
